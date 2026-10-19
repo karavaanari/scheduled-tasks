@@ -10,8 +10,8 @@ import random
 import datetime as dt
 import os
 
-my_email = os.environ.get("my_email")
-password = os.environ.get("password")
+MY_EMAIL = os.environ.get("MY_EMAIL")
+PASSWORD = os.environ.get("MY_PASSWORD")
 
 today = (dt.datetime.now().month, dt.datetime.now().day)
 
@@ -25,9 +25,9 @@ if today in birthday_dict:
 
     with smtplib.SMTP("smtp.gmail.com", port=587) as connection:
         connection.starttls()
-        connection.login(my_email, password)
+        connection.login(MY_EMAIL, PASSWORD)
         connection.sendmail(
-            from_addr=my_email,
+            from_addr=MY_EMAIL,
             to_addrs=birthday_dict[today]["email"],
             msg=f"Subject:Happy Birthday\n\n{updated_letter}".encode("utf-8")
         )
