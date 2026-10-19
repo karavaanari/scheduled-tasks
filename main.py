@@ -10,8 +10,8 @@ import random
 import datetime as dt
 import os
 
-my_email = os.environ.get("MY_EMAIL")
-password = os.environ.get("MY_PASSWORD")
+my_email = os.environ.get("my_email")
+password = os.environ.get("password")
 
 today = (dt.datetime.now().month, dt.datetime.now().day)
 
