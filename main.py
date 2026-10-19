@@ -11,7 +11,7 @@ import datetime as dt
 import os
 
 MY_EMAIL = os.environ.get("MY_EMAIL")
-PASSWORD = os.environ.get("MY_PASSWORD")
+MY_PASSWORD = os.environ.get("MY_PASSWORD")
 
 today = (dt.datetime.now().month, dt.datetime.now().day)
 
@@ -25,7 +25,7 @@ if today in birthday_dict:
 
     with smtplib.SMTP("smtp.gmail.com", port=587) as connection:
         connection.starttls()
-        connection.login(MY_EMAIL, PASSWORD)
+        connection.login(MY_EMAIL, MY_PASSWORD)
         connection.sendmail(
             from_addr=MY_EMAIL,
             to_addrs=birthday_dict[today]["email"],
